@@ -1,6 +1,7 @@
 # Site settings
 baseurl: /test
 url: https://aalister.github.io
+theme: null
 defaults:
   -
     scope:
