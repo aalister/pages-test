@@ -1,4 +1,6 @@
 ---
 ---
 <h1>Test Home Page</h1>
-<p>{{ site.url }}</p>
+{% for page in site.pages %}
+<p>page at {{ page.path }}</p>
+{% endfor %}
