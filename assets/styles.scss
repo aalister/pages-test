@@ -1,0 +1,18 @@
+@font-face {
+	font-family: "Atkinson";
+	src: url("./AtkinsonHyperlegible-Regular.ttf");
+}
+
+* {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Atkinson", sans-serif;
+	font-size: 1.6rem;
+}
