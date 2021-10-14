@@ -4,7 +4,7 @@
 	<title>{{ page.title }} - Github Pages Test</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="twitter:title" content="Test page">
+	<meta name="twitter:title" content="{{ page.title }} - Github Pages Test">
 	<link rel="stylesheet" href="{{ site.baseurl }}/assets/styles.css">
 	<!-- Set theme before content loads to prevent flash -->
 	<script>
@@ -22,6 +22,7 @@
 		document.documentElement.dataset.theme = theme;
 	})();
 	</script>
+	<script>MathJax = { options: { enableMenu: false } };</script>
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 	<script src="{{ site.baseurl }}/assets/scripts.js" defer></script>
 </head>
