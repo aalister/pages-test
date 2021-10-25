@@ -1,4 +1,5 @@
 ---
+layout: null
 ---
 
 pages = {{site.pages | jsonify}}
