@@ -1,5 +1,5 @@
 ---
-layout: null
+# front matter
 ---
 
 pages = {{site.pages | jsonify}}

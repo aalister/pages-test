@@ -10,6 +10,6 @@ defaults:
       layout: default
   -
     scope:
-      path: "assets/"
+      path: "assets"
     values:
-      test: rabbit
+      layout: null
