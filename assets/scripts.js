@@ -2,7 +2,7 @@
 # front matter
 ---
 
-const pages = {{site.html_files | jsonify}}
+const pages = {{site.pages | jsonify}};
 
 (function() {
 	console.log("hello world");
