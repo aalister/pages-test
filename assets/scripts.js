@@ -1,7 +1,7 @@
 ---
 ---
 
-pages = {{site.pages | jsonify}}
+pages = {{ site.html_files | jsonify }}
 
 (function() {
 	console.log("hello world");
