@@ -1,5 +1,5 @@
 ---
-published: false
+layout: null
 ---
 
 pages = {{site.pages | jsonify}}
