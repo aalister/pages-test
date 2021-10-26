@@ -3,5 +3,6 @@ title: Home
 ---
 <h1>Test Home Page</h1>
 {% for p in site.html_pages %}
-	<p>page at {{ p.path }} with content {{ p.content }}</p>
+	{% assign lines = p.content | split "\n" %}
+	<p>page at {{ p.path }} with content {{ lines }}</p>
 {% endfor %}
