@@ -2,6 +2,16 @@
 title: Home
 ---
 <h1>Test Home Page</h1>
-{% for page in site.pages %}
-<p>page at {{ page.path }} with categories {{ page.categories }}</p>
+{% for p in site.html_pages %}
+	<p>page at {{ p.path }} with headers 
+	{% assign lines = p.content | split: '\n' %}
+	{% for line in lines %}
+		{% if line != blank %}
+			{% assign header = line | split "# " %}
+			{% if header[0] == blank %}
+				{{ header[1] }} 
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+	</p>
 {% endfor %}
