@@ -4,8 +4,11 @@ title: Home
 <h1>Test Home Page</h1>
 {% for p in site.html_pages %}
 <hr>
-{% assign lines = p.content | newline_to_br | split: "<br />" | compact %}
-{% for line in lines %}
--{{ line }}--
+{% assign lines = p.content | newline_to_br | split: "<br />" %}
+{% for _line in lines %}
+{% assign line = _line | strip %}
+{% if line.size > 0 %}
+-{{ line }}-
+{% endif %}
 {% endfor %}
 {% endfor %}
