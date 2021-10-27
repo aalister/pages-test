@@ -7,9 +7,6 @@ title: Home
 {% assign lines = p.content | newline_to_br | split: "<br />" %}
 {% for _line in lines %}
 {% assign line = _line | strip %}
-{% if line == blank %}
--blank-
-{% endif %}
 {% if line != blank %}
 -{{ line }}-
 {% endif %}
