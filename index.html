@@ -6,6 +6,6 @@ title: Home
 <hr>
 {% assign lines = p.content | newline_to_br | split: "<br />" %}
 {% for line in lines %}
-<!-- start -->{{ line }}<!-- end -->
+<!-- start -->{{ line | strip }}<!-- end -->
 {% endfor %}
 {% endfor %}
