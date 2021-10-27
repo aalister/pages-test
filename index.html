@@ -6,7 +6,7 @@ title: Home
 <hr>
 {% assign lines = p.content | newline_to_br | split: "<br />" %}
 {% for _line in lines %}
-{% assign line = _line | rstrip %}
+{% assign line = _line | strip %}
 {% if line != blank %}
 <!-- start -->{{ line }}<!-- end -->
 {% endif %}
