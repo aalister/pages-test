@@ -3,5 +3,6 @@ title: Home
 ---
 <h1>Test Home Page</h1>
 {% for p in site.html_pages %}
-	{{ p.content }}
+<hr>
+{{ p.content | newline_to_br }}
 {% endfor %}
