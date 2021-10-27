@@ -5,7 +5,10 @@ title: Home
 {% for p in site.html_pages %}
 <hr>
 {% assign lines = p.content | newline_to_br | split: "<br />" %}
-{% for line in lines %}
-<!-- start -->{{ line | strip }}<!-- end -->
+{% for _line in lines %}
+{% assign line = _line | rstrip %}
+{% if line != blank %}
+<!-- start -->{{ line }}<!-- end -->
+{% endif %}
 {% endfor %}
 {% endfor %}
