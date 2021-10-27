@@ -5,7 +5,7 @@ const pages = [
 	{% for p in site.html_pages %}
 	{
 		title: "{{ p.title }}",
-		content: "{{ p.content | newline_to_br }}"
+		content: "{{ p.content | jsonify }}"
 	},
 	{% endfor %}
 ];
