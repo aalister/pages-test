@@ -3,6 +3,8 @@ title: Home
 ---
 <h1>Test Home Page</h1>
 {% for p in site.html_pages %}
-	{% assign test = "123,456,789" | split: "," %}
-	{{ test }}
+	{% assign lines = "123,456,789" | split: "," %}
+	{% for line in lines %}
+		{{ line }}<br>
+	{% endfor %}
 {% endfor %}
