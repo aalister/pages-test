@@ -3,8 +3,9 @@ title: Home
 ---
 <h1>Test Home Page</h1>
 <style>
+	table { margin-bottom: 10px; }
 	table, td {
-		border: 1px solid black;
+		border: 1px solid #000;
 		border-collapse: collapse;
 	}
 </style>
@@ -16,6 +17,11 @@ title: Home
 	{%- assign line = _line | strip %}
 	{%- if line.size > 0 %}
 	<tr>
+		{%- assign header_check = line | slice: 0, 2 %}
+		<td>-{{ header_check }}-</td>
+		{%- if header_check == "# " %}
+		<td>Header 1</td>
+		{%- endif %}
 		<td>{{ line | size }}</td>
 		<td>{{ line }}</td>
 	</tr>
