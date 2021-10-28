@@ -9,13 +9,16 @@ title: Home
 {% assign line = line | strip %}
 {% if line.size > 0 %}
 {% assign header_check = line | slice: 0, 2 %}
+{{ header_check }}
 {% if header_check == "# " %}
 Header 1: {{ line }}<br>
 {% endif %}
 {% assign header_check = line | slice: 0, 3 %}
+{{ header_check }}
 {% if header_check == "## " %}
 Header 2: {{ line }}<br>
 {% endif %}
+{{ line }}<br>
 {% endif %}
 {% endfor %}
 {% endfor %}
