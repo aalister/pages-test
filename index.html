@@ -12,38 +12,8 @@ title: Home
 {%- for p in site.html_pages %}
 {%- unless page.url == p.url %}
 <table>
-	{%- assign lines = p.content | newline_to_br | split: "<br />" %}
-	{%- for _line in lines %}
-	{%- assign line = _line | strip %}
-
-	{%- if line.size == 0 %}
-		{%- continue %}
-	{%- endif %}
-
-	{%- assign header = "" %}
-	{%- assign header_level = 0 %}
-
-	{%- assign header_check = line | slice: 0, 2 %}
-	{%- if header_check == "# " %}
-		{%- assign header = line | slice: 2, line.size %}
-		{%- assign header_level = 1 %}
-	{%- endif %}
-
-	{%- assign header_check = line | slice: 0, 3 %}
-	{%- if header_check == "## " %}
-		{%- assign header = line | slice: 3, line.size %}
-		{%- assign header_level = 2 %}
-	{%- endif %}
-	
-	{%- if header.size == 0 %}
-		{%- continue %}
-	{%- endif %}
-
-	<tr>
-		<td>{{ header }}</td>
-		<td>Header {{ header_level }}</td>
-	</tr>
-	{%- endfor %}
+	{%- assign content = p.content | markdownify %}
+	{{ content }}
 </table>
 {%- endunless %}
 {%- endfor %}
