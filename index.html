@@ -16,13 +16,12 @@ title: Home
 	{%- assign headers = content | split: "<h" | shift %}
 	{%- for header in headers %}
 	<tr>
-		{%- assign level = header[0] %}
+		{%- assign level = header | slice: 0 %}
 		{%- assign title = header | split: "</h" | first | split: ">" | last %}
 		<td>{{ level }}</td>
 		<td>{{ title }}</td>
 	</tr>
 	{%- endfor %}
-	{{ content }}
 </table>
 {%- endunless %}
 {%- endfor %}
