@@ -2,6 +2,12 @@
 title: Home
 ---
 <h1>Test Home Page</h1>
+<style>
+	table, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+</style>
 {% for p in site.html_pages -%}
 {%- if page.url != p.url -%}
 <table>
@@ -9,10 +15,12 @@ title: Home
 	{%- for _line in lines -%}
 	<tr>
 		{% assign line = _line | strip -%}
-		<th>{{ line | size }}</th>
-		<th>{{ line }}</th>
+		{%- if line | size > 0 -%}
+		<td>{{ line | size }}</td>
+		<td>{{ line }}</td>
+		{%- endif %}
 	</tr>
-	{% endfor -%}
+	{%- endfor %}
 </table>
-{% endif -%}
+{%- endif -%}
 {%- endfor -%}
