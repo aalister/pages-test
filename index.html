@@ -5,10 +5,17 @@ title: Home
 {% for p in site.html_pages %}
 <hr>
 {% assign lines = p.content | newline_to_br | split: "<br />" %}
-{% for _line in lines %}
-{% assign line = _line | strip %}
+{% for line in lines %}
+{% assign line = line | strip %}
 {% if line.size > 0 %}
--{{ line }}-
+{% assign header_check = line | slice: 0, 2 %}
+{% if header_check == "# " %}
+Header 1: {{ line }}<br>
+{% endif %}
+{% assign header_check = line | slice: 0, 3 %}
+{% if header_check == "## " %}
+Header 2: {{ line }}<br>
+{% endif %}
 {% endif %}
 {% endfor %}
 {% endfor %}
