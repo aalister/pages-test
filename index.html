@@ -2,23 +2,23 @@
 title: Home
 ---
 <h1>Test Home Page</h1>
-{% for p in site.html_pages %}
+{%- for p in site.html_pages -%}
 <hr>
-{% assign lines = p.content | newline_to_br | split: "<br />" %}
-{% for line in lines %}
-{% assign line = line | strip %}
-{% if line.size > 0 %}
-{% assign header_check = line | slice: 0, 2 %}
-{{ header_check }}
-{% if header_check == "# " %}
+{%- assign lines = p.content | newline_to_br | split: "<br />" -%}
+{%- for line in lines -%}
+{%- assign line = line | strip -%}
+{%- if line.size > 0 -%}
+{%- assign header_check = line | slice: 0, 2 -%}
+-{{ header_check | size }}-{{ header_check }}-
+{%- if header_check == "# " -%}
 Header 1: {{ line }}<br>
-{% endif %}
-{% assign header_check = line | slice: 0, 3 %}
-{{ header_check }}
-{% if header_check == "## " %}
+{%- endif %}
+{%- assign header_check = line | slice: 0, 3 -%}
+-{{ header_check | size }}-{{ header_check }}-
+{%- if header_check == "## " -%}
 Header 2: {{ line }}<br>
-{% endif %}
+{%- endif -%}
 {{ line }}<br>
-{% endif %}
-{% endfor %}
-{% endfor %}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
