@@ -16,20 +16,28 @@ title: Home
 	{%- for _line in lines %}
 	{%- assign line = _line | strip %}
 	{%- if line.size > 0 %}
+	
+	{%- assign header = "" %}
+	{%- assign header_level = 0 %}
+
+	{%- assign header_check = line | slice: 0, 2 %}
+	{%- if header_check == "# " %}
+		{%- assign header = line | slice: 2, line.size %}
+		{%- assign header_level = 1 %}
+	{%- endif %}
+
+	{%- assign header_check = line | slice: 0, 3 %}
+	{% if header_check == "## " %}
+		{%- assign header = line | slice: 3, line.size %}
+		{%- assign header_level = 2 %}
+	{% endif %}
+
+	{%- if header.size > 0 %}
 	<tr>
-		{%- assign header_check = line | slice: 0, 2 %}
-		<td>h1 check-{{ header_check }}-</td>
-		{%- if header_check == "# " %}
-		<td>Header 1</td>
-		{%- endif %}
-		{%- assign header_check = line | slice: 0, 3 %}
-		<td>h2 check-{{ header_check }}-</td>
-		{%- if header_check == "## " %}
-		<td>Header 2</td>
-		{%- endif %}
-		<td>{{ line | size }}</td>
-		<td>{{ line }}</td>
+		<td>{{ header }}</td>
+		<td>Header {{ header_level }}</td>
 	</tr>
+	{%- endif %}
 	{%- endif %}
 	{%- endfor %}
 </table>
