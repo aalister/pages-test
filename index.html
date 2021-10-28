@@ -13,6 +13,15 @@ title: Home
 {%- unless page.url == p.url %}
 <table>
 	{%- assign content = p.content | markdownify %}
+	{%- assign headers = content | split: "<h" | shift %}
+	{%- for header in headers %}
+	<tr>
+		{%- assign level = header[0] %}
+		{%- assign title = header | split: "</h" | first | split: ">" | last %}
+		<td>{{ level }}</td>
+		<td>{{ title }}</td>
+	</tr>
+	{%- endfor %}
 	{{ content }}
 </table>
 {%- endunless %}
