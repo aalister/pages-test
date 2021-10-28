@@ -15,12 +15,12 @@ title: Home
 	{%- for _line in lines -%}
 	<tr>
 		{% assign line = _line | strip -%}
-		{%- if line | size > 0 -%}
+		{%- if line.size > 0 -%}
 		<td>{{ line | size }}</td>
 		<td>{{ line }}</td>
 		{%- endif %}
 	</tr>
-	{%- endfor %}
+	{% endfor %}
 </table>
 {%- endif -%}
 {%- endfor -%}
