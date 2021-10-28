@@ -1,3 +1,5 @@
+---
+---
 const pages = [
 	{%- for p in site.html_pages %}
 	{
