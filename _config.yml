@@ -1,6 +1,8 @@
 baseurl: /test
 url: https://aalister.github.io
 theme: null
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
 defaults:
   -
     scope:
