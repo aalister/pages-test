@@ -2,7 +2,7 @@
 ---
 const pages = [
 	{%- for p in site.html_pages %}
-	{url: "{{ p.url }}", title: "{{ p.title | replace: '"', "'" }}", headers: [
+	{url: "{{ p.url | relative_url }}", title: "{{ p.title | replace: '"', "'" }}", headers: [
 		{%- assign headers = p.content | markdownify | split: "<h" | shift %}
 		{%- for header in headers %}
 			{%- assign level = header | slice: 0 %}
