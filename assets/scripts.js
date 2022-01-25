@@ -7,9 +7,13 @@ const pages = [
 		{%- for header in headers %}
 			{%- assign header = header | split: "</h" | first %}
 			{%- assign level = header | slice: 0 %}
-			{%- assign id = header | split: 'id="' | last | split: '"' | first %}
+			{%- assign ids = header | split: 'id="' %}
+			{%- if ids.size < 2 %}
+				{%- continue %}
+			{%- endif %}
+			{%- assign id = ids | split: '"' | first %}
 			{%- assign content = header | split: ">" | last -%}
-			{level: {{ level }}, id: {{ id }}, content: "{{ content | replace: '"', "'" }}"},
+			{level: {{ level }}, id: "{{ id }}", content: "{{ content | replace: '"', "'" }}"},
 		{%- endfor -%}
 		]},
 	{%- endfor %}
