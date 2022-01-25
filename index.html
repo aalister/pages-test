@@ -10,7 +10,7 @@ title: Home
 	}
 </style>
 {%- for p in site.html_pages %}
-{%- unless page.url == p.url %}
+<!-- {%- unless page.url == p.url %} -->
 <table>
 	{%- assign headers = p.content | markdownify | split: "<h" | shift %}
 	{%- for header in headers %}
@@ -22,5 +22,5 @@ title: Home
 	</tr>
 	{%- endfor %}
 </table>
-{%- endunless %}
+<!-- {%- endunless %} -->
 {%- endfor %}
