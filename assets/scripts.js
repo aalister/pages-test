@@ -5,9 +5,11 @@ const pages = [
 	{url: "{{ p.url | relative_url }}", title: "{{ p.title | replace: '"', "'" }}", headers: [
 		{%- assign headers = p.content | markdownify | split: "<h" | shift %}
 		{%- for header in headers %}
+			{%- assign header = header | split: "</h" | first %}
 			{%- assign level = header | slice: 0 %}
-			{%- assign content = header | split: "</h" | first | split: ">" | last -%}
-			{level: {{ level }}, content: "{{ content | replace: '"', "'" }}"},
+			{%- assign id = header | split: 'id="' | last | split: '"' | first %}
+			{%- assign content = header | split: ">" | last -%}
+			{level: {{ level }}, id: {{ id }}, content: "{{ content | replace: '"', "'" }}"},
 		{%- endfor -%}
 		]},
 	{%- endfor %}
