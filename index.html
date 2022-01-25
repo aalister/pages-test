@@ -10,6 +10,7 @@ title: Home
 	}
 </style>
 {%- for p in site.html_pages %}
+{{ p.url  }}
 <!-- {%- unless page.url == p.url %} -->
 <table>
 	{%- assign headers = p.content | markdownify | split: "<h" | shift %}
