@@ -10,9 +10,13 @@ title: Home
 	}
 </style>
 {%- for p in site.html_pages %}
+
 {{ p.url  }}
-<pre>{{ p.content | markdownify }}</pre>
-<!-- {%- unless page.url == p.url %} -->
+{%- assign test = p.content | markdownify | split: "<h" %}
+{%- for t in test %}
+	{{ t }}<br>
+{%- endfor %}
+
 <table>
 	{%- assign headers = p.content | markdownify | split: "<h" | shift %}
 	{%- for header in headers %}
@@ -24,5 +28,4 @@ title: Home
 	</tr>
 	{%- endfor %}
 </table>
-<!-- {%- endunless %} -->
 {%- endfor %}
