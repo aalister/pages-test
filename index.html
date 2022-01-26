@@ -10,14 +10,11 @@ title: Home
 	}
 </style>
 {%- for p in site.html_pages %}
-
-{{ p.url  }}
-{%- assign test = p.content | markdownify | split: "<h" %}
-{%- for t in test %}
-	{{ t }}<br>
-{%- endfor %}
-
 <table>
+	<tr>
+		<td>Url</td>
+		<td>{{ p.url | relative_url }}</td>
+	</tr>
 	{%- assign headers = p.content | markdownify | split: "<h" | shift %}
 	{%- for header in headers %}
 	<tr>
