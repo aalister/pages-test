@@ -22,6 +22,7 @@ title: Home
 		{%- assign level = header | slice: 0 | times: 1 %}
 		{%- assign title = header | split: ">" | last %}
 		{%- assign id = header | split: 'id="' | last | split: '"' | first %}
+		<td>{{ header }}</td>
 		<td>{{ id }}</td>
 		<td>{{ level }}</td>
 		<td>{{ title }}</td>
