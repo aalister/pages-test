@@ -18,14 +18,7 @@ title: Home
 	{%- assign headers = p.content | markdownify | prepend: " " | split: "<h" | shift %}
 	{%- for header in headers %}
 	<tr>
-		{%- assign header = header | split: "</h" | first %}
-		{%- assign level = header | slice: 0 | times: 1 %}
-		{%- assign title = header | split: ">" | last %}
-		{%- assign id = header | split: 'id="' | last | split: '"' | first %}
 		<td>{{ header }}</td>
-		<td>{{ id }}</td>
-		<td>{{ level }}</td>
-		<td>{{ title }}</td>
 	</tr>
 	{%- endfor %}
 </table>
