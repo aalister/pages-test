@@ -16,9 +16,10 @@ title: Home
 		<td>{{ p.url | relative_url }}</td>
 	</tr>
 
-	{%- assign headers = p.content | markdownify | prepend: "-" | split: "<h" %}
+	{%- assign headers = p.content | markdownify | prepend: "-" | split: "<h" | shift %}
 	{%- for header in headers %}
 	<tr>
+		{%- assign header = header | split: "</h" | first %}
 		<td>{{ header | escape }}</td>
 	</tr>
 	{%- endfor %}
