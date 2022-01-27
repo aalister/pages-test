@@ -4,7 +4,7 @@ theme: null
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
 include:
- - _layouts/test.js
+ - _layouts
 defaults:
   -
     scope:
