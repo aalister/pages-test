@@ -15,10 +15,11 @@ title: Home
 		<td>Url</td>
 		<td>{{ p.url | relative_url }}</td>
 	</tr>
+
 	{%- assign headers = p.content | markdownify | prepend: "-" | split: "<h" %}
 	{%- for header in headers %}
 	<tr>
-		<td>{{ header }}</td>
+		<td>{{ header | escape }}</td>
 	</tr>
 	{%- endfor %}
 </table>
