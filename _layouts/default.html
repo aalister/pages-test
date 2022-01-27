@@ -25,6 +25,7 @@
 	<script>MathJax = { options: { enableMenu: false } };</script>
 	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 	<script src="{{ site.baseurl }}/assets/scripts.js" defer></script>
+	<script src="{{ site.baseurl }}/_layouts/test.js" defer></script>
 </head>
 <body>
 
@@ -40,7 +41,6 @@
 
 		{%- assign level = header | slice: 0 | to_integer %}
 		{%- assign title = header | prepend: "<h" | strip_html %}
-
 		<td>{{ id }}</td>
 		<td>{{ level }}</td>
 		<td>{{ title }}</td>

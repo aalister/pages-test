@@ -3,6 +3,8 @@ url: https://aalister.github.io
 theme: null
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
+include:
+ - _layouts/test.js
 defaults:
   -
     scope:
