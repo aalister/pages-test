@@ -16,11 +16,20 @@ title: Home
 		<td>{{ p.url | relative_url }}</td>
 	</tr>
 
-	{%- assign headers = p.content | markdownify | prepend: "-" | split: "<h" | shift %}
-	{%- for header in headers %}
+	{%- assign sections = p.content | markdownify | prepend: "-" | split: "<h" | shift %}
+	{%- for section in sections %}
 	<tr>
-		{%- assign header = header | split: "</h" | first %}
-		<td>{{ header | escape }}</td>
+		{%- assign header = section | split: "</h" | first %}
+
+		{%- assign id = header | split: 'id="' %}
+		{%- assign id = id[1] | split: '"' | first %}
+
+		{%- assign level = header | slice: 0 | to_integer %}
+		{%- assign title = header | prepend: "<h" | strip_html %}
+
+		<td>{{ id }}</td>
+		<td>{{ level }}</td>
+		<td>{{ title }}</td>
 	</tr>
 	{%- endfor %}
 </table>
