@@ -16,3 +16,13 @@ body {
 	font-family: "Atkinson", sans-serif;
 	font-size: 1.6rem;
 }
+
+/* Table of contents */
+table {
+	margin-bottom: 10px;
+}
+
+table, td {
+	border: 1px solid #000;
+	border-collapse: collapse;
+}

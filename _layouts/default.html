@@ -28,6 +28,26 @@
 </head>
 <body>
 
+<!-- Table of contents generated automatically -->
+<table>
+	{%- assign sections = content | prepend: "-" | split: "<h" | shift %}
+	{%- for section in sections %}
+	<tr>
+		{%- assign header = section | split: "</h" | first %}
+
+		{%- assign id = header | split: 'id="' %}
+		{%- assign id = id[1] | split: '"' | first %}
+
+		{%- assign level = header | slice: 0 | to_integer %}
+		{%- assign title = header | prepend: "<h" | strip_html %}
+
+		<td>{{ id }}</td>
+		<td>{{ level }}</td>
+		<td>{{ title }}</td>
+	</tr>
+	{%- endfor %}
+</table>
+
 {{ content }}
 
 </body>
