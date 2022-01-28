@@ -10,7 +10,7 @@ defaults:
     scope:
       path: ""
     values:
-      layout: default
+      layout: _default
   -
     scope:
       path: "assets"
