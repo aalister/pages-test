@@ -1,36 +1,27 @@
 ---
 title: Home
 ---
-<h1>Test Home Page</h1>
+
+<h1 id="test-home-page">Test Home Page</h1>
+
 <style>
-	table { margin-bottom: 10px; }
+	table {
+		margin-bottom: 10px;
+	}
 	table, td {
 		border: 1px solid #000;
 		border-collapse: collapse;
 	}
 </style>
+
 {%- for p in site.html_pages %}
 <table>
+	{%- assign url = p.url | split: "/" %}
+	{%- unless url.length == 2 %}
 	<tr>
-		<td>Url</td>
-		<td>{{ p.url | relative_url }}</td>
+		<td>{{ p.url }}</td>
+		<td>{{ p.title }}</td>
 	</tr>
-
-	{%- assign sections = p.content | markdownify | prepend: "-" | split: "<h" | shift %}
-	{%- for section in sections %}
-	<tr>
-		{%- assign header = section | split: "</h" | first %}
-
-		{%- assign id = header | split: 'id="' %}
-		{%- assign id = id[1] | split: '"' | first %}
-
-		{%- assign level = header | slice: 0 | to_integer %}
-		{%- assign title = header | prepend: "<h" | strip_html %}
-
-		<td>{{ id }}</td>
-		<td>{{ level }}</td>
-		<td>{{ title }}</td>
-	</tr>
-	{%- endfor %}
+	{%- endunless %}
 </table>
 {%- endfor %}
