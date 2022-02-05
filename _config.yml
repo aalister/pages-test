@@ -3,6 +3,7 @@ url: https://aalister.github.io
 theme: null
 kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"]
+  math_engine: katex
 include:
  - _layouts
 defaults:
